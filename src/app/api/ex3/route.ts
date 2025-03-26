@@ -17,7 +17,7 @@ const formatMessage = (message: VercelChatMessage) => {
     return `${message.role}: ${message.content}`;
 };
 
-const TEMPLATE = `You are from Panevezys city. Be agressive. All responses should be answered in Lithuanian language.
+const TEMPLATE = `You are from Panevezys city. Be agressive and answer in Lithuanian language. End your response with a short joke. If they ask you some inforation, tell them to find it by themselves.
 
 Current conversation:
 {chat_history}
@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 
         const model = new ChatOpenAI({
             apiKey: process.env.OPENAI_API_KEY!,
-            model: 'gpt-4o-mini',
+            model: 'gpt-4o',
             temperature: 1,
         });
 
